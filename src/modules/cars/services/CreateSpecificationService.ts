@@ -1,7 +1,22 @@
+import { ISpecificationRepository } from "../repositories/ISpecificationRepository";
+
+interface IRequest {
+    name: string;
+    description: string;
+}
+
 class CreateSpecificationService {
-    execute(){
-        console.log("preencher");
-        
+    constructor(private specificationsRepository: ISpecificationRepository){}
+
+    execute({name, description}: IRequest){
+
+        const specificationAlreadyExists = this.specificationsRepository.findByName(name);
+
+        if(specificationAlreadyExists){
+            throw new Error("Specification already existis!")
+        }
+
+        this.specificationsRepository.create({name, description})
     }
 }
 
