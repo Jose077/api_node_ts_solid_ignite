@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn  src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "license": "MIT",
   "dependencies": {
@@ -13,6 +14,7 @@
     "eslint-plugin-import": "^2.24.0",
     "express": "^4.17.1",
     "multer": "^1.4.3",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
     "typeorm": "^0.2.37",
