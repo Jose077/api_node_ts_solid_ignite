@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Rentalx Documentation",
+        "description": "This is an API Rent",
+        "vesion": "1.0.0",
+        "contact": {
+            "email": "email@email.com"
+        } 
+    },
+
+    "paths": {
+        "/categories": {
+            "post": {
+                "tags": ["Category"],
+                "summary": "Criar uma categoria",
+                "description": "Criar uma nova categoria",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                }, 
+                                "exemple": {
+                                    "name": "Categoria 1",
+                                    "description": "Descrição da categoria!"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Categoria já existe"
+                    }
+                }
+            },
+            
+            "get": {
+                "tags": ["Category"],
+                "summary": "Listar todas as categorias",
+                "description": "Listar todas as categorias",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        }, 
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+}
