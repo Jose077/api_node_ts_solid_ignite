@@ -33,7 +33,6 @@ export class CreateCategories1629136224593 implements MigrationInterface {
                     ]
                 
                 }
-
             )
         )
     }

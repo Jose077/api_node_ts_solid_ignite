@@ -13,8 +13,6 @@ services:
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
-
-
   app:
     build: .
     container_name: rentx
@@ -28,9 +26,6 @@ services:
       - database
     depends_on:
       - database
-
-
-
 volumes:
   pgdata:
     driver: local
