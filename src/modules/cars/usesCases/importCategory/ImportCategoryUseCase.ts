@@ -35,7 +35,6 @@ class ImportCategoryUseCase {
                 reject(err)
             })
         })
-
     }
 
    async  execute( file: any ): Promise<void> {
