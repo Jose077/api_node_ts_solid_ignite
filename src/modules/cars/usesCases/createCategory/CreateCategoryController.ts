@@ -9,12 +9,20 @@ class CreateCategoryController {
 
         const { name, description } = await req.body;
 
-        const createCategoryUseCase = container.resolve(CreateCategoryUseCase)
+        const createCategoryUseCase = container.resolve(CreateCategoryUseCase);
     
-        await createCategoryUseCase.execute({name, description})
+        await createCategoryUseCase.execute(
+            { 
+                name, 
+                description 
+            }
+        );
+
+        console.log("listagem");
+        
     
-        return res.status(201).send()
+        return res.status(201).send();
     }
 }
 
-export { CreateCategoryController}
+export { CreateCategoryController }

@@ -2,7 +2,6 @@
 import {inject, injectable} from "tsyringe"
 
 import { ICategoriesRespository } from "../../repositories/ICategoriesRepository";
-import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -13,7 +12,7 @@ interface IRequest {
 class CreateCategoryUseCase {
 
     constructor(
-        @inject(CategoriesRepository)
+        @inject("CategoriesRepository")
         private categoriesRepository: ICategoriesRespository
         
         ){}
@@ -25,7 +24,7 @@ class CreateCategoryUseCase {
              throw new Error("Category already exists!")
         }
     
-        this.categoriesRepository.create({ name, description})
+        await this.categoriesRepository.create({ name, description})
     }
 }
 
