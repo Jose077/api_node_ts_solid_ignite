@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Rentalx Documentation",
+        "title": "Rentx Documentation",
         "description": "This is an API Rent",
         "vesion": "1.0.0",
         "contact": {
@@ -72,8 +72,80 @@
                 }
 
             }
+        },
+
+        "/categories/import": {
+            "post": {
+                "tags": ["Category"],
+                "summary": "Upload a new category",
+                "dscription": "Upload a new category",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+
+        },
+
+        "/specifications": {
+            "post": {
+                "tags": ["Specification"],
+                "summary": "Create a specifications",
+                "description": "Create a new specification",
+                "requestBody": {
+                    "content": {
+                        "aplication/json": {
+                            "schema": {
+                              "$ref": "#/definations/Specification" 
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }, 
+                    "500": {
+                        "description": "Specification alredy exist"
+                    }
+                }
+            },
+
+            "get": {
+                "tags": ["specifications"],
+                "summary": "Retorna lista de especificações"
+            }
+        }
+    },
+
+    "definations": {
+        "specification": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
 
         }
-
     }
 }
