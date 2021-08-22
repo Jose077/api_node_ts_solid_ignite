@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express-async-erros
 
 PATH: 
   C:\Users\sande\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\sande\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Users\sande\AppData\Local\Pub\Cache\bin;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\sande\AppData\Local\Microsoft\WindowsApps;C:\Users\sande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\sande\Documents\flutter\flutter\bin;C:\Users\sande\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -14,7 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\sande\Documents\learn_node\projeto_solid\api_node_ts_solid_ignite\node_modules\bcrypt\lib\binding\napi-v3\bcrypt_lib.node'
+  Error: https://registry.yarnpkg.com/express-async-erros: Not found
+      at Request.params.callback [as _callback] (C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
+      at Request.self.callback (C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
+      at Request.emit (events.js:375:28)
+      at Request.<anonymous> (C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141634:10)
+      at Request.emit (events.js:375:28)
+      at IncomingMessage.<anonymous> (C:\Users\sande\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141556:12)
+      at Object.onceWrapper (events.js:481:28)
+      at IncomingMessage.emit (events.js:387:35)
+      at endReadableNT (internal/streams/readable.js:1317:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
