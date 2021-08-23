@@ -6,7 +6,7 @@ class CreateUserController {
 
     async handle(req: Request, res: Response): Promise<Response>{
 
-        const { driver_licence, email, name, password, username } = req.body;
+        const { driver_licence, email, name, password } = req.body;
         
         const createUserUseCase = container.resolve(CreateUserUseCase);
 
