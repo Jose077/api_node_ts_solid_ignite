@@ -38,7 +38,6 @@ class AuthenticateUserUseCase {
 
         //Senha esta correta
         if(!passwordMatch) {
-            console.log("Senha incorreta");
 
             throw new AppError("Email or password incorrect!");
         }
