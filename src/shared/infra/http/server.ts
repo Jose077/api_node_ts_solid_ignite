@@ -1,14 +1,14 @@
-import { AppError } from './errors/AppError';
+import { AppError } from '../../errors/AppError';
 import { NextFunction, Request, Response } from 'express';
 import express from 'express';
 import "express-async-errors"
-import "./database"
+import "../typeorm"
 
-import "./shared/container"
+import "../../container"
 
 
 import swaggerUi from "swagger-ui-express"
-import swaggerFile from "./swagger.json"
+import swaggerFile from "../../../swagger.json"
 
 import { router } from './routes';
 
