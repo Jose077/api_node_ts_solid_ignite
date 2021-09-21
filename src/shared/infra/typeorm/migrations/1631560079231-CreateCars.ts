@@ -52,6 +52,7 @@ export class CreateCars1631560079231 implements MigrationInterface {
                         default: "now()"
                     }
                 ],
+                
                 foreignKeys: [
                     {
                         name: "FkCategoryCar",
