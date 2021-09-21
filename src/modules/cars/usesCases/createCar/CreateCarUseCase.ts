@@ -13,10 +13,10 @@ interface IRequest {
 }
 
 
-@injectable()
+// @injectable()
 class CreateCarUseCase {
     constructor(
-        @inject("CarsRepository")
+        // @inject("CarsRepository")
         private carsRepository: ICarsRepository
     ){}
 
@@ -29,6 +29,16 @@ class CreateCarUseCase {
         fine_amount, 
         brand
     }: IRequest): Promise<void> {
+
+        this.carsRepository.create({
+            name, 
+            description, 
+            daily_rate, 
+            licence_plate, 
+            category_id,
+            fine_amount, 
+            brand 
+        })
 
     }
 
