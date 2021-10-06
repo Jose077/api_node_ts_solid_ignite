@@ -6,9 +6,8 @@ Deve ser possivel cadastrar um novo carro.
 
 **RN** 
 Não deve ser possível cadasrtar um carro com uma placa já existente.
-Não deve ser possível alterar a placa de um carro já cadastrado.
 O carro deve ser cadastrado, por padrão, com disponibilidade.
-Apenas adminstradores cadastram carro.
+*Apenas adminstradores cadastram carro.
 
 
 # Listagem de carro

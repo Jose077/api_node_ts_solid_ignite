@@ -1,3 +1,5 @@
+import { Car } from '@modules/cars/infra/typeorm/entities/Car';
+import { AppError } from './../../../../shared/errors/AppError';
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { inject, injectable } from "tsyringe";
 
@@ -13,32 +15,41 @@ interface IRequest {
 }
 
 
-// @injectable()
+@injectable()
 class CreateCarUseCase {
     constructor(
-        // @inject("CarsRepository")
+        @inject("CarsRepository")
         private carsRepository: ICarsRepository
-    ){}
+    ) { }
 
-    async execute({ 
-        name, 
-        description, 
-        daily_rate, 
-        licence_plate, 
+    async execute({
+        name,
+        description,
+        daily_rate,
+        licence_plate,
         category_id,
-        fine_amount, 
+        fine_amount,
         brand
-    }: IRequest): Promise<void> {
+    }: IRequest): Promise<Car> {
 
-        this.carsRepository.create({
-            name, 
-            description, 
-            daily_rate, 
-            licence_plate, 
+        const carAlreadyexists = await this.carsRepository.findByLicencePlate(licence_plate);
+
+        if (carAlreadyexists) {
+            throw new AppError("Car already exists!")
+
+        }
+
+        const car = await this.carsRepository.create({
+            name,
+            description,
+            daily_rate,
+            licence_plate,
             category_id,
-            fine_amount, 
-            brand 
+            fine_amount,
+            brand
         })
+
+        return car
 
     }
 
