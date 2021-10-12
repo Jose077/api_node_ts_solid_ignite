@@ -2,7 +2,7 @@ import { AppError } from '../../errors/AppError';
 import { NextFunction, Request, Response } from 'express';
 import express from 'express';
 import "express-async-errors"
-import "../typeorm"
+import createConnection from  "../typeorm"
 
 import "../../container"
 
@@ -12,6 +12,7 @@ import swaggerFile from "../../../swagger.json"
 
 import { router } from './routes';
 
+createConnection("localhost");
 
 const app = express();
 

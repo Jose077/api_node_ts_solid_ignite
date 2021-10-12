@@ -67,11 +67,8 @@ describe("Create Car", () => {
             brand: "brand"
         });
 
-        expect(car.avaliable).toBe(true)
-
-
-
-
+        expect(car.available).toBe(true)
+        
     })
 
 })
