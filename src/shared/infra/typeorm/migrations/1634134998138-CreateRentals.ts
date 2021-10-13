@@ -17,7 +17,6 @@ export class CreateRentals1634134998138 implements MigrationInterface {
                         name: "user_id",
                         type: "uuid" 
                     },
-
                     
                     {
                         name: "car_id",
@@ -33,16 +32,18 @@ export class CreateRentals1634134998138 implements MigrationInterface {
                     {
                         name: "end_date",
                         type: "timestamp",
+                        isNullable: true
                     },
 
                     {
-                        name: "expect_return_date",
+                        name: "expected_return_date",
                         type: "timestamp"
                     },
 
                     {
                         name: "total",
-                        type: "numeric"
+                        type: "numeric",
+                        isNullable: true
                     },
 
                     {
