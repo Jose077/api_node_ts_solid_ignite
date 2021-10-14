@@ -23,6 +23,7 @@ export class CreateRentals1634134998138 implements MigrationInterface {
                         type: "uuid" 
                     },
 
+                    
                     {
                         name: "start_date",
                         type: "timestamp",
