@@ -60,5 +60,16 @@ Não deve ser possivel cadastrar um novo aluguel caso já exista um aberto para 
 O usuario deve estar logado a aplicação
 
 
+# Devolução de carro
+
+
+**RN**
+Se o carro for devolvido com menos de 24 hrs, deverá ser cobrado a diária completa.
+Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.
+Ao realizar a devolução, devera ser calculado o total do aluguel.
+Caso o horario de devoluçao seja superior ao horario previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
+Caso haja multa, deverá ser somado ao total do aluguel.
+
+
 
 

@@ -1,3 +1,4 @@
+import { CarsRepositoryInMemory } from '@modules/cars/repositories/in-memory/CarsRepositoryInMemory';
 import { AppError } from '@shared/errors/AppError';
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory"
 import { CreateRentalUseCase } from "./CreateRentalUseCase"
@@ -7,7 +8,8 @@ import { DayjsDateProvider } from '@shared/container/provides/DateProvider/imple
 
 let createRentalUseCase: CreateRentalUseCase
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory
-let dayjsDateProvider: DayjsDateProvider
+let dayjsDateProvider: DayjsDateProvider;
+let carsRepositoryInMemory : CarsRepositoryInMemory;
 
 
 describe("Create Rental", () => {
@@ -16,7 +18,8 @@ describe("Create Rental", () => {
     beforeEach(() => {
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory()
         dayjsDateProvider = new DayjsDateProvider();
-        createRentalUseCase = new CreateRentalUseCase( rentalsRepositoryInMemory, dayjsDateProvider);
+        carsRepositoryInMemory = new CarsRepositoryInMemory()
+        createRentalUseCase = new CreateRentalUseCase( rentalsRepositoryInMemory, dayjsDateProvider, carsRepositoryInMemory);
     })
 
     it("should be able to create a new rental", async () => {
