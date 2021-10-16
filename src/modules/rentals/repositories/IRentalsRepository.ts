@@ -12,6 +12,8 @@ interface IRentalsRepository {
 
     findById(id: string): Promise<Rental>
 
+    findByUser(user_id): Promise<Rental[]>
+
 }
 
 export { IRentalsRepository }
