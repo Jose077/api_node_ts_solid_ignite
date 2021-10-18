@@ -5,6 +5,7 @@ import { usersRoutes } from "./users.routes";
 import { authenticateRoutes } from "./authenticate.routes"
 import { carsRouter } from "./cars.routes";
 import { rentalRoutes } from "./rental.routes";
+import { passwordRoutes } from "./password.routes";
 
 
 const router = Router();
@@ -14,6 +15,8 @@ router.use("/specifications", specificationRoutes)
 router.use("/users", usersRoutes)
 router.use("/cars", carsRouter )
 router.use("/rentals", rentalRoutes )
+router.use("/password", passwordRoutes )
+
 
 router.use(authenticateRoutes) 
 
