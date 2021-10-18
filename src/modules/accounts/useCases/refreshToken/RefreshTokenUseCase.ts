@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 import { AppError } from './../../../../shared/errors/AppError';
 import { verify } from 'jsonwebtoken';
 import { IUsersTokenRepository } from '@modules/accounts/repositories/IUsersTokenRepository';
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 import auth from '@config/auth';
 
 interface IPayload {
@@ -11,6 +11,7 @@ interface IPayload {
     email: string;
 }
 
+@injectable()
 class RefreshTokenUseCase {
 
     constructor(
@@ -50,8 +51,6 @@ class RefreshTokenUseCase {
             user_id
 
         })
-
-
 
         return refresh_token;
 
