@@ -1,9 +1,13 @@
+import { IDateProvider } from '@shared/container/provides/DateProvider/IDateProvider';
+import { IUsersTokenRepository } from '@modules/accounts/repositories/IUsersTokenRepository';
+import { UsersTokensRepository } from '@modules/accounts/infra/typeorm/repositories/UsersTokenRepository';
 import { compare } from "bcrypt"
 import { inject, injectable } from "tsyringe";
 import { sign } from "jsonwebtoken"
 
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
+import auth from '@config/auth';
 
 interface IRequest {
     email: string;
@@ -15,14 +19,21 @@ interface IResponse {
         name: string;
         email: string;
     },
-    token: string
+    token: string,
+    refresh_token: string
 }
 
 @injectable()
 class AuthenticateUserUseCase {
     constructor(
         @inject("UsersRepository")
-        private usersRepository: IUsersRepository
+        private usersRepository: IUsersRepository,
+
+        @inject("UsersTokensRepository")
+        private usersTokensRepository: IUsersTokenRepository,
+
+        @inject("DayjsDateProvider")
+        private dateProvider: IDateProvider
     ){}
 
     async execute({email, password} : IRequest): Promise<IResponse>{
@@ -42,14 +53,31 @@ class AuthenticateUserUseCase {
             throw new AppError("Email or password incorrect!");
         }
 
-        const token = sign({}, "fcac8d15d4d184621103c4427fb88d25", { subject: user.id, expiresIn: "1d" });
+        const token = sign({}, auth.secret_token, { subject: user.id, expiresIn: auth.expires_in_token });
+
+        const refresh_token = sign({email}, auth.secret_refresh_token, {
+            subject: user.id,
+            expiresIn: auth.expires_in_refresh_token
+            
+        });
+
+        const refresh_token_expires_date = this.dateProvider.addDays(
+            auth.expires_refresh_token_days
+        )
+
+        await this.usersTokensRepository.create({
+            user_id: user.id,
+            refresh_token,
+            expires_date: refresh_token_expires_date,
+        })
 
         const tokenReturn: IResponse = {
             token,
             user: {
                 name: user.name,
                 email: user.email
-            }
+            },
+            refresh_token
         }
 
         return tokenReturn
