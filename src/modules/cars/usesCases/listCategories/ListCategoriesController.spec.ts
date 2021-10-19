@@ -36,17 +36,17 @@ describe("List category controller", () => {
             password: "admin"
         })
 
-        const { token } = responseToken.body
+        const { refresh_token } = responseToken.body
 
         const responseCreate = await request(app).post("/categories").send({
             name: "Category supertest",
             description: "Category Supertest"
         }).set({
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${refresh_token}`
         })
 
         const response = await request(app).get("/categories").set({
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${refresh_token}`
         })
 
         console.log(response.body);

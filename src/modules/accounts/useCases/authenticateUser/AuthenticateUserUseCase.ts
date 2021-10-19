@@ -40,7 +40,6 @@ class AuthenticateUserUseCase {
         const user = await this.usersRepository.findByEmail(email)
 
         if(!user){
-            console.log("nao achei o user");
             
             throw new AppError("Email or password incorrect!");
         }
