@@ -12,6 +12,9 @@ export default {
         destination: tmpFolder,
         filename: (req, file, callback) => {
             const fileHash = crypto.randomBytes(16).toString("hex");
+
+            console.log(file);
+            
             //@ts-ignore
             const fileName = `${fileHash}-${file.originalName}`
 
