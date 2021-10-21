@@ -10,7 +10,7 @@ const usersRoutes = Router();
 
 // usersRoutes.use(ensureAuthenticated);
 
-const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
+const uploadAvatar = multer(uploadConfig);
 
 const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
