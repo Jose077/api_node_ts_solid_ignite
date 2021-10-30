@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 import { Request, Response} from "express"
-import { ListRenstalByUserUseCase } from './ListRenstalByuserUseCase';
+import { ListRenstalByUserUseCase } from './ListRenstalByUserUseCase';
 
 
 class ListRenstalByUserController {

@@ -1,3 +1,4 @@
+require("dotenv/config")
 
 import { IStorageProvider } from '@shared/container/provides/StorageProvider/IStorageProvider';
 import { container } from 'tsyringe';
